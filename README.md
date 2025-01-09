@@ -1,59 +1,48 @@
-# AuthApp
+Here's an updated `README.md` reflecting your intent to position the app as a central authentication hub:
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
+---
 
-## Development server
+# Auth App
 
-To start a local development server, run:
+**Auth App** serves as a centralized authentication system, akin to Microsoft's identity platform, designed to provide secure, scalable, and efficient authentication services for multiple applications.
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Key Highlights
 
-## Code scaffolding
+- **Centralized Authentication**: One secure point of authentication for all connected apps.
+- **Multi-App Integration**: Seamlessly integrates with different apps, ensuring unified user management.
+- **Scalable Architecture**: Built with modern frameworks to support enterprise-level scalability.
+- **Secure by Design**: Implements robust security features, including JWT-based authentication and role-based access control.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## Use Cases
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **Authentication Gateway**: Auth App can be used to manage authentication for a suite of applications, providing a consistent and secure login experience.
+- **Multi-Tenant Support**: Ideal for applications requiring shared authentication across multiple clients or tenants.
+- **Role Management**: Centralized role and permission management for users across integrated applications.
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## Technologies Used
 
-To build the project run:
+- **Frontend**: Angular 18
+- **Backend**: Spring Boot, Spring Security
+- **Database**: PostgreSQL
+- **Authentication**: JWT (JSON Web Tokens)
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## How It Works
 
-## Running unit tests
+1. **User Registration**: New users register via a single platform.
+2. **Central Authentication**: Once authenticated, users gain access to all connected applications.
+3. **Token-Based Authentication**: JWTs ensure secure and stateless communication.
+4. **Role-Based Access Control**: Permissions are assigned based on roles to regulate access across different apps.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+---
 
-```bash
-ng test
-```
+## Vision
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Auth App is designed to simplify authentication and user management for organizations, serving as a secure and reliable hub that can grow alongside their needs.
