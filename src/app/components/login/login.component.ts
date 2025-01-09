@@ -26,8 +26,8 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, private authService: AuthService) {
     this.loginForm = this.fb.group({
-      usernameOrEmail: ['', [Validators.required, this.usernameOrEmailValidator]],
-      password: ['', Validators.required],
+      userName: ['', [Validators.required, this.usernameOrEmailValidator]],
+      passwordHash: ['', Validators.required],
     });
   }
 
@@ -42,17 +42,17 @@ export class LoginComponent {
     if (emailRegex.test(value) || usernameRegex.test(value)) {
       return null; // Valid
     }
-    return { usernameOrEmail: true }; // Invalid
+    return { userName: true }; // Invalid
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.authService.register(this.loginForm.value).subscribe({
+      this.authService.login(this.loginForm.value).subscribe({
         next: (response) => {
-          console.log('Registration successful:', response);
+          console.log('Login successful:', response);
         },
         error: (error) => {
-          console.error('Registration error:', error);
+          console.error('Login error:', error);
         },
       });
     }

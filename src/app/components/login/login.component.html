@@ -5,11 +5,11 @@
       <!-- Username or Email Field -->
       <mat-form-field appearance="outline">
         <mat-label>Email or Username</mat-label>
-        <input matInput formControlName="usernameOrEmail" />
-        <mat-error *ngIf="loginForm.get('usernameOrEmail')?.hasError('required')">
+        <input matInput formControlName="userName" />
+        <mat-error *ngIf="loginForm.get('userName')?.hasError('required')">
           This field is required
         </mat-error>
-        <mat-error *ngIf="loginForm.get('usernameOrEmail')?.hasError('usernameOrEmail')">
+        <mat-error *ngIf="loginForm.get('userName')?.hasError('userName')">
           Enter a valid email or username
         </mat-error>
       </mat-form-field>
@@ -17,8 +17,8 @@
       <!-- Password Field -->
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
-        <input matInput formControlName="password" type="password" />
-        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+        <input matInput formControlName="passwordHash" type="password" />
+        <mat-error *ngIf="loginForm.get('passwordHash')?.hasError('required')">
           Password is required
         </mat-error>
       </mat-form-field>
