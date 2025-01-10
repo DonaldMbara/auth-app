@@ -20,7 +20,7 @@ export class AuthService {
       .pipe(
         map(response => {
           if (response.status === HttpStatusCode.Found) {
-            const redirectUrl = response.headers.get('Location');
+            const redirectUrl = "https://www.google.com/" //response.headers.get('Location');
             if (redirectUrl) {
               window.location.href = redirectUrl;
             }
