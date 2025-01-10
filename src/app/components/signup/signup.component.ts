@@ -30,6 +30,8 @@ export class SignupComponent {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       passwordHash: ['', [Validators.required, Validators.minLength(6)]],
+      userName: ['', Validators.required],
+
     });
   }
 
