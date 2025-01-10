@@ -47,7 +47,7 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.value).subscribe({
+      this.authService.login(this.loginForm.value,'https://www.google.com/').subscribe({
         next: (response) => {
           alert(`Login successful`);
           console.log('Login successful:', response);

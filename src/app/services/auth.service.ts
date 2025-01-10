@@ -15,18 +15,19 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/register`, data);
   }
 
-  login(data: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, data, { observe: 'response' })
+  login(data: any, redirectUri: string): Observable<any> {
+    const url = `${this.apiUrl}/login?redirectUri=${encodeURIComponent(redirectUri)}`;
+    return this.http.post<any>(url, data, { observe: 'response' })
       .pipe(
         map(response => {
           if (response.status === HttpStatusCode.Found) {
-              // Hardcoded Google URL
-            window.location.href = "https://www.google.com/";  // Perform the redirection
+            window.location.href = redirectUri; // Redirect for testing
           }
           return response.body;
         })
       );
   }
+
 
 
 }
