@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {map, Observable} from 'rxjs';
-import { environment } from '../../environments/environment.staging';
+import {environment} from '../../environments/environment.staging';
 import {HttpClient, HttpStatusCode} from '@angular/common/http';
 
 @Injectable({
@@ -20,14 +20,13 @@ export class AuthService {
       .pipe(
         map(response => {
           if (response.status === HttpStatusCode.Found) {
-            const redirectUrl = response.headers.get('Location'); // Get redirect URL from response header
-            if (redirectUrl) {
-              window.location.href = redirectUrl; // Redirect to the URL
-            }
+              // Hardcoded Google URL
+            window.location.href = "https://www.google.com/";  // Perform the redirection
           }
           return response.body;
         })
       );
   }
+
 
 }
