@@ -49,11 +49,11 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: (response) => {
-          alert(`Login successful: ${response.body}`);
+          alert(`Login successful`);
           console.log('Login successful:', response);
         },
         error: (error) => {
-          alert(`Something went wrong! Please try again: ${error}`);
+          alert(`Something went wrong! Please try again`);
           console.error('Login error:', error);
         },
       });
