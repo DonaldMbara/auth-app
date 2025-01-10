@@ -34,24 +34,26 @@ export class LoginComponent {
   usernameOrEmailValidator(control: any) {
     const value = control.value;
     if (!value) {
-      return null; // Handled by Validators.required
+      return null;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const usernameRegex = /^[a-zA-Z0-9._-]+$/; // Alphanumeric with dots, underscores, and hyphens
+    const usernameRegex = /^[a-zA-Z0-9._-]+$/;
 
     if (emailRegex.test(value) || usernameRegex.test(value)) {
-      return null; // Valid
+      return null;
     }
-    return { userName: true }; // Invalid
+    return { userName: true };
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: (response) => {
+          alert(`Login successful: ${response.body}`);
           console.log('Login successful:', response);
         },
         error: (error) => {
+          alert(`Something went wrong! Please try again: ${error}`);
           console.error('Login error:', error);
         },
       });

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {map, Observable} from 'rxjs';
 import { environment } from '../../environments/environment.staging';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpStatusCode} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +16,18 @@ export class AuthService {
   }
 
   login(data: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, data);
+    return this.http.post<any>(`${this.apiUrl}/login`, data, { observe: 'response' })
+      .pipe(
+        map(response => {
+          if (response.status === HttpStatusCode.Found) {
+            const redirectUrl = response.headers.get('Location');
+            if (redirectUrl) {
+              window.location.href = redirectUrl;
+            }
+          }
+          return response.body;
+        })
+      );
   }
+
 }
