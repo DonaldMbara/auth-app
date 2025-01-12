@@ -4,7 +4,6 @@ import {environment} from '../../environments/environment.staging';
 import {HttpClient, HttpStatusCode} from '@angular/common/http';
 import {LoginResponse, RegisterResponse} from '../models/responses.interface';
 import {RegisterRequest, LoginRequest} from '../models/request.interface';
-import {RegisterRequest, LoginRequest} from '../models/request.interface';
 
 @Injectable({
   providedIn: 'root',
