@@ -31,27 +31,27 @@ export class SignupComponent {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       passwordHash: ['', [Validators.required, Validators.minLength(6)]],
+      userName: [''], // Add userName here
     });
   }
 
-  onSubmit(message?: any) {
+
+  onSubmit() {
     if (this.signupForm.valid) {
+      // Set userName if not explicitly provided
       const email = this.signupForm.get('email')?.value;
       if (!this.signupForm.get('userName')?.value && email) {
         const userName = email.split('@')[0];
         this.signupForm.patchValue({ userName });
       }
 
+      console.log('Payload Sent to Backend:', this.signupForm.value);
 
+      // Send registration request
       this.authService.register(this.signupForm.value).subscribe({
         next: (response: RegisterResponse) => {
-          if (response?.message) {
-            console.log('Registration successful:', response);
-            alert(`Account created successfully! Please login.`);
-          } else {
-            console.warn('Unexpected response during registration:', response);
-            alert('Registration was successful, but no additional details were provided.');
-          }
+          console.log('Registration successful:', response);
+          alert('Registration was successful');
         },
         error: (error) => {
           if (error?.error?.message) {
@@ -63,6 +63,9 @@ export class SignupComponent {
           }
         },
       });
+    } else {
+      alert('Please fill in all required fields.');
     }
   }
+
 }

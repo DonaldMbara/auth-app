@@ -50,13 +50,8 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value,'https://www.google.com/').subscribe({
         next: (response: LoginResponse) => {
-          if (response.statusCode === 200) {
             alert(`Login successful: ${response.message}`);
             console.log('Login successful:', response);
-          } else {
-            alert(`Unexpected response: ${response.message}`);
-            console.warn('Unexpected response:', response);
-          }
         },
         error: (error) => {
           if (error?.error?.message) {
