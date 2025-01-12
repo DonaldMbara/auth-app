@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import {RegisterResponse} from '../../models/responses.interface'
+import {Response} from '../../models/responses.interface'
 
 @Component({
   selector: 'app-signup',
@@ -49,7 +49,7 @@ export class SignupComponent {
 
       // Send registration request
       this.authService.register(this.signupForm.value).subscribe({
-        next: (response: RegisterResponse) => {
+        next: (response: Response) => {
           console.log('Registration successful:', response);
           alert('Registration was successful');
         },

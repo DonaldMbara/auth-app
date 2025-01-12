@@ -1,10 +1,6 @@
-export interface LoginResponse{
+export interface Response {
   message: string;
   statusCode: number;
   data: string;
 }
 
-export interface RegisterResponse{
-  message: string;
-
-}

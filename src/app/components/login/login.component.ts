@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import {AuthService} from '../../services/auth.service';
-import {LoginResponse} from '../../models/responses.interface';
+import {Response} from '../../models/responses.interface';
 
 @Component({
   selector: 'app-login',
@@ -49,7 +49,7 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value,'https://www.google.com/').subscribe({
-        next: (response: LoginResponse) => {
+        next: (response: Response) => {
             alert(`Login successful: ${response.message}`);
             console.log('Login successful:', response);
         },
