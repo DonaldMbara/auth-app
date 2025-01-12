@@ -2,6 +2,9 @@ import {Injectable} from '@angular/core';
 import {map, Observable} from 'rxjs';
 import {environment} from '../../environments/environment.staging';
 import {HttpClient, HttpStatusCode} from '@angular/common/http';
+import {LoginResponse, RegisterResponse} from '../models/responses.interface';
+import {RegisterRequest, LoginRequest} from '../models/request.interface';
+import {RegisterRequest, LoginRequest} from '../models/request.interface';
 
 @Injectable({
   providedIn: 'root',
