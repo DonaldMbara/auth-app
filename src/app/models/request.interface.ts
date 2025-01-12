@@ -1,9 +1,9 @@
-interface LoginRequest {
+export interface LoginRequest {
   userName: string;
   passwordHash: string;
 }
 
-interface RegisterRequest {
+export interface RegisterRequest {
   userName: string;
   email: string;
   passwordHash: string;

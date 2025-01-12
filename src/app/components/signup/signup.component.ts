@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import {RegisterResponse} from '../../models/responses.interface'
 
 @Component({
   selector: 'app-signup',

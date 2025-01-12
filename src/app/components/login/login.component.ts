@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import {AuthService} from '../../services/auth.service';
+import {LoginResponse} from '../../models/responses.interface';
 
 @Component({
   selector: 'app-login',

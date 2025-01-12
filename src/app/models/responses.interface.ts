@@ -1,10 +1,10 @@
-interface LoginResponse{
+export interface LoginResponse{
   message: string;
   statusCode: number;
   data: string;
 }
 
-interface RegisterResponse{
+export interface RegisterResponse{
   message: string;
 
 }
