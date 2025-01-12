@@ -11,11 +11,11 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  register(data: any): Observable<any> {
+  register(data: RegisterRequest): Observable<RegisterResponse> {
     return this.http.post<any>(`${this.apiUrl}/register`, data);
   }
 
-  login(data: any, redirectUri: string): Observable<any> {
+  login(data: LoginRequest, redirectUri: string): Observable<LoginResponse> {
     const url = `${this.apiUrl}/login?redirectUri=${encodeURIComponent(redirectUri)}`;
     return this.http.post<any>(url, data, { observe: 'response' })
       .pipe(

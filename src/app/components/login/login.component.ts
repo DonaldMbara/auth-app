@@ -48,12 +48,21 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value,'https://www.google.com/').subscribe({
-        next: (response) => {
-          alert(`Login successful`);
-          console.log('Login successful:', response);
+        next: (response: LoginResponse) => {
+          if (response.statusCode === 200) {
+            alert(`Login successful: ${response.message}`);
+            console.log('Login successful:', response);
+          } else {
+            alert(`Unexpected response: ${response.message}`);
+            console.warn('Unexpected response:', response);
+          }
         },
         error: (error) => {
-          alert(`Something went wrong! Please try again`);
+          if (error?.error?.message) {
+            alert(`Login failed: ${error.error.message}`);
+          } else {
+            alert(`Something went wrong! Please try again`);
+          }
           console.error('Login error:', error);
         },
       });

@@ -43,13 +43,23 @@ export class SignupComponent {
 
 
       this.authService.register(this.signupForm.value).subscribe({
-        next: (response) => {
-          console.log('Registration successful:', response);
-          alert(`Account created successfully! Please login `);
+        next: (response: RegisterResponse) => {
+          if (response?.message) {
+            console.log('Registration successful:', response);
+            alert(`Account created successfully! Please login.`);
+          } else {
+            console.warn('Unexpected response during registration:', response);
+            alert('Registration was successful, but no additional details were provided.');
+          }
         },
         error: (error) => {
-          console.error('Registration error:', error);
-          alert("Something went wrong! Please try again");
+          if (error?.error?.message) {
+            console.error('Registration error:', error);
+            alert(`Registration failed: ${error.error.message}`);
+          } else {
+            console.error('Unexpected registration error:', error);
+            alert('Something went wrong! Please try again.');
+          }
         },
       });
     }
